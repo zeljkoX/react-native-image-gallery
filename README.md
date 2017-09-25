@@ -19,7 +19,7 @@ This component aims to be (one of) the best image viewer for react-native apps. 
 * Gesture handle: besides common pan, pinch and doubleTap, this component does well in targeting foucs point( or pivot) when zoom-in and zoom-out.
 * Responder switch: the gesture responder switch is more flexible than any other component, that is, the scrollable container and the wrapped image children perform well in acquiring and releasing gesture responder from/to each other.
 
-This component utilizes **[@ldn0x7dc/react-native-view-pager](https://github.com/ldn0x7dc/react-native-view-pager)** as the scrollable container and **[react-native-transformable-image](https://github.com/ldn0x7dc/react-native-transformable-image)** as the wrapped image. 
+This component utilizes **[@ldn0x7dc/react-native-view-pager](https://github.com/ldn0x7dc/react-native-view-pager)** as the scrollable container and **[react-native-transformable-image](https://github.com/ldn0x7dc/react-native-transformable-image)** as the wrapped image.
 
 This component works on react-native **0.28+**.
 
@@ -69,6 +69,8 @@ Prop | Description | Type | Default
 `pageMargin` | Blank space to show between images | `number` | `0`
 `onPageSelected` | Fired with the index of page that has been selected | `function`
 `onPageScrollStateChanged` | Called when page scrolling state has changed, see [scroll state and events](#scroll-state-and-events) | `function`
+`onResponderMove` | Fired with gestureState and current page scale level | `function`
+`onResponderRelese` | Fired with the gestureState | `function`
 `onPageScroll` | Scroll event, see [scroll state and events](#scroll-state-and-events) | `function`
 `scrollViewStyle` | Custom style for the `FlastList` component | `object` | `{}`
 `onSingleTapConfirmed` | Fired after a single tap | `function`
@@ -76,9 +78,9 @@ Prop | Description | Type | Default
 
 ## Scroll state and events
 
-* `onPageScroll` : (event) => {}. 
+* `onPageScroll` : (event) => {}.
 
-  The event object carries following data: 
+  The event object carries following data:
 
   * `position`:  index of first page from the left that is currently visible.
   * `offset`: value from range [0,1) describing stage between page transitions.
