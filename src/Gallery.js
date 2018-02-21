@@ -21,7 +21,8 @@ export default class Gallery extends PureComponent {
     onLongPress: PropTypes.func,
     removeClippedSubviews: PropTypes.bool,
     imageComponent: PropTypes.func,
-    errorComponent: PropTypes.func
+    errorComponent: PropTypes.func,
+    noEffects: PropTypes.bool
   }
 
   static defaultProps = {
@@ -29,7 +30,8 @@ export default class Gallery extends PureComponent {
     imageComponent: undefined,
     scrollViewStyle: {},
     onResponderMove: () => {},
-    onResponderRelease: () => {}
+    onResponderRelease: () => {},
+    noEffects: false
   }
 
   imageRefs = new Map()
@@ -252,6 +254,7 @@ export default class Gallery extends PureComponent {
         image={pageData}
         enableScale={noEffects ? false : true}
         enableTranslate={noEffects ? false : true}
+        enableTransform={noEffects ? false : true}
       />
     )
   }
